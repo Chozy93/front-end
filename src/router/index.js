@@ -1,22 +1,89 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    alias: "/dept",
+    name: "dept",
+    component: () => import("@/components/dept/DeptList")
+  },
+  // 부서 라우팅
+  {
+    path: "/dept/:dno",
+    name: "dept-details",
+    component: () => import("@/components/dept/DeptDetail")
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: "/add/dept",
+    name: "add-dept",
+    component: () => import("@/components/dept/AddDept")
+  },  
+  // 사원 라우팅
+  {
+    path: "/emp",
+    name: "emp",
+    component: () => import("@/components/emp/EmpList")
+  },
+  {
+    path: "/emp/:eno",
+    name: "emp-details",
+    component: () => import("@/components/emp/EmpDetail")
+  },
+  {
+    path: "/add/emp",
+    name: "add-emp",
+    component: () => import("@/components/emp/AddEmp")
+  }, 
+  // faq 라우팅
+  {
+    path: "/faq",
+    name: "faq",
+    component: () => import("@/components/faq/FaqList")
+  },
+  {
+    path: "/faq/:no",
+    name: "faq-details",
+    component: () => import("@/components/faq/FaqDetail")
+  },
+  {
+    path: "/add/faq",
+    name: "add-faq",
+    component: () => import("@/components/faq/AddFaq")
+  }, 
+  // customer 라우팅
+  {
+    path: "/customer",
+    name: "customer",
+    component: () => import("@/components/customer/CustomerList")
+  },
+  {
+    path: "/customer/:cid",
+    name: "customer-details",
+    component: () => import("@/components/customer/CustomerDetail")
+  },
+  {
+    path: "/add/customer",
+    name: "add-customer",
+    component: () => import("@/components/customer/AddCustomer")
+  }, 
+  // qna 라우팅
+  {
+    path: "/qna",
+    name: "qna",
+    component: () => import("@/components/qna/QnaList")
+  },
+  {
+    path: "/qna/:qno",
+    name: "qna-details",
+    component: () => import("@/components/qna/QnaDetail")
+  },
+  {
+    path: "/add/qna",
+    name: "add-qna",
+    component: () => import("@/components/qna/AddQna")
   }
 ]
 
